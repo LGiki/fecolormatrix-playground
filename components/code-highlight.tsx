@@ -9,7 +9,7 @@ export default function CodeHighlight(props: {
     theme?: PrismTheme
     language: string
 }) {
-    const { toast } = useToast()
+    const {toast} = useToast()
 
     return (
         <div className='relative'>
@@ -28,17 +28,23 @@ export default function CodeHighlight(props: {
                 </Button>
             </CopyToClipboard>
             <Highlight
-                theme={props.theme || themes.github}
+                theme={props.theme ?? themes.vsDark}
                 code={props.code}
                 language={props.language}
             >
                 {
                     ({className, style, tokens, getLineProps, getTokenProps}) => (
-                        <pre style={style} className='p-3 rounded-xl overflow-x-auto'>
+                        <pre style={style} className='rounded-xl overflow-x-auto py-2'>
                             {
                                 tokens.map((line, i) => (
                                     <div key={i} {...getLineProps({line})}>
-                                        <span className='select-none mr-3'>{i + 1}</span>
+                                        <span
+                                            className={`select-none px-3 sticky left-0`}
+                                            style={{
+                                                background: style.backgroundColor,
+                                            }}>
+                                            {i + 1}
+                                        </span>
                                         {
                                             line.map((token, key) => (
                                                 <span key={key} {...getTokenProps({token})} />

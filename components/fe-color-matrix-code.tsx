@@ -1,4 +1,10 @@
-import CodeHighlight from "@/components/code-highlight";
+import {useTheme} from "next-themes";
+import {themes} from "prism-react-renderer";
+import dynamic from 'next/dynamic'
+
+const CodeHighlight = dynamic(() => import('@/components/code-highlight'), {
+    ssr: false,
+})
 
 export default function FeColorMatrixCode(props: {
     feColorMatrix: number[]
@@ -16,6 +22,8 @@ export default function FeColorMatrixCode(props: {
     filter: url(#your-filter-id-here);
 }`
 
+    const {theme} = useTheme()
+
     return (
         <div className='flex flex-col gap-5'>
             <div className='space-y-2'>
@@ -23,6 +31,7 @@ export default function FeColorMatrixCode(props: {
                 <CodeHighlight
                     code={svgCode}
                     language='svg'
+                    theme={theme === 'dark' ? themes.vsDark : themes.vsLight}
                 />
             </div>
 
@@ -31,6 +40,7 @@ export default function FeColorMatrixCode(props: {
                 <CodeHighlight
                     code={cssCode}
                     language='css'
+                    theme={theme === 'dark' ? themes.vsDark : themes.vsLight}
                 />
             </div>
         </div>
