@@ -47,6 +47,7 @@ export default function FeColorMatrixImage(props: {
                                 slot="first"
                                 src={imageSrc}
                                 className='rounded-xl'
+                                alt='Image before applying feColorMatrix'
                             />
                             <figcaption
                                 className='bg-white/50 px-2 py-1 text-lg shadow-lg rounded-lg backdrop-blur-xl text-gray-800 absolute left-2'>Before
@@ -57,6 +58,7 @@ export default function FeColorMatrixImage(props: {
                                 slot="first"
                                 src={imageSrc}
                                 className='rounded-xl'
+                                alt='Image after applying feColorMatrix'
                                 style={{
                                     filter: 'url(#fe-color-matrix)'
                                 }}
