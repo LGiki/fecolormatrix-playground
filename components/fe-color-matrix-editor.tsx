@@ -7,6 +7,7 @@ const TABLE_HEADER = ['R', 'G', 'B', 'A', 'Offset']
 export default function FeColorMatrixEditor(props: {
     feColorMatrix: number[],
     onChange?: (feColorMatrix: number[]) => void
+    onReset?: (index: number) => void
 }) {
     return (
         <div className='grid grid-cols-fe-color-matrix gap-2 content-center md:gap-4'>
@@ -19,7 +20,7 @@ export default function FeColorMatrixEditor(props: {
                 })
             }
             {
-                props.feColorMatrix.map((value, index) => {
+                props.feColorMatrix.map((_, index) => {
                     return (
                         <React.Fragment key={index}>
                             {
@@ -51,7 +52,7 @@ export default function FeColorMatrixEditor(props: {
                                         props.onChange?.(feColorMatrix)
                                     }}
                                     onDoubleClick={() => {
-                                        // TODO: reset to default value
+                                        props.onReset?.(index)
                                     }}
                                 />
                             </div>
