@@ -16,11 +16,11 @@ export default function CodeHighlight(props: {
             <CopyToClipboard
                 text={props.code}
                 onCopy={() => toast({
-                    title: '✅ Copied to clipboard',
+                    title: '✅ Copied to clipboard.',
                 })}
             >
                 <Button
-                    className='absolute top-3 right-3'
+                    className='absolute top-3 right-3 h-8 w-8 md:h-10 md:w-10 opacity-60 hover:opacity-100 transition-opacity duration-100 ease-in-out'
                     size='icon'
                     title='Copy'
                 >

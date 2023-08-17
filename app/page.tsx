@@ -21,18 +21,18 @@ export default function Home() {
     return (
         <div className="flex flex-col h-screen">
             <NavBar/>
-            <div className='h-0 flex-grow p-3 md:px-6'>
+            <div className='h-0 flex-grow p-1 md:px-6 md:p-3'>
                 <Card className='h-full w-full flex flex-col md:flex-row'>
-                    <div className='flex flex-col gap-5 flex-1 p-5 overflow-auto'>
+                    <div className='flex flex-col gap-3 flex-1 p-2 overflow-auto md:p-5 md:gap-5'>
                         <h1 className='text-lg'>Edit feColorMatrix Here:</h1>
                         <FeColorMatrixEditor
                             feColorMatrix={feColorMatrix}
                             onChange={setFeColorMatrix}
                         />
-                        <Separator/>
+                        <Separator className='mt-2'/>
                         <FeColorMatrixCode feColorMatrix={feColorMatrix}/>
                     </div>
-                    <div className='flex-1'>
+                    <div className='flex-1 p-2 h-0 md:h-full'>
                         <FeColorMatrixImage
                             feColorMatrix={feColorMatrix}
                         />

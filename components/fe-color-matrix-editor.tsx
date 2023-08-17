@@ -9,7 +9,7 @@ export default function FeColorMatrixEditor(props: {
     onChange?: (feColorMatrix: number[]) => void
 }) {
     return (
-        <div className='grid grid-cols-fe-color-matrix gap-4 content-center'>
+        <div className='grid grid-cols-fe-color-matrix gap-2 content-center md:gap-4'>
             <div></div>
             {
                 TABLE_HEADER.map((value, index) => {
@@ -24,10 +24,11 @@ export default function FeColorMatrixEditor(props: {
                         <React.Fragment key={index}>
                             {
                                 index % 5 === 0 && (
-                                    <div className='text-gray-400 flex items-center justify-center'>{TABLE_HEADER[index / 5]}</div>
+                                    <div
+                                        className='text-gray-400 flex items-center justify-center'>{TABLE_HEADER[index / 5]}</div>
                                 )
                             }
-                            <div className='flex flex-col gap-4' >
+                            <div className='flex flex-col gap-4'>
                                 <Input
                                     type='number'
                                     value={props.feColorMatrix[index].toFixed(1)}

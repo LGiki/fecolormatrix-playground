@@ -10,27 +10,31 @@ export default function NavBar() {
     return (
         <>
             <div
-                className='flex flex-col space-y-2 shrink-0 p-3 items-center border-b md:flex-row md:justify-between md:space-y-0 md:h-16 md:px-6'>
+                className='flex flex-row gap-1 flex-shrink-0 py-2 px-3 items-center border-b justify-between md:h-16 md:px-6 md:py-3'>
                 <div className='flex flex-1 space-x-5 md:space-x-10'>
                     <h2 className="text-lg font-semibold">feColorMatrix Playground</h2>
                 </div>
-                <div className='flex space-x-4 flex-shrink-0'>
+                <div className='flex gap-2 flex-shrink-0'>
                     <Button
                         variant='outline'
-                        size='icon'
                         title='Help'
+                        size='icon'
                         onClick={() => setIsHelpDialogOpen(true)}
+                        className='h-8 w-8 md:h-10 md:w-10'
                     >
                         <HelpCircle className="h-4 w-4"/>
                     </Button>
                     <DarkModeToggle/>
-                    <Button
-                        variant='outline'
-                        size='icon'
-                        title='Github'
-                    >
-                        <Github className="h-4 w-4"/>
-                    </Button>
+                    <a href='https://github.com/LGiki/fecolormatrix-playground' target='_blank'>
+                        <Button
+                            variant='outline'
+                            size='icon'
+                            title='Github'
+                            className='h-8 w-8 md:h-10 md:w-10'
+                        >
+                            <Github className="h-4 w-4"/>
+                        </Button>
+                    </a>
                 </div>
             </div>
             <HelpDialog open={isHelpDialogOpen} onOpenChange={setIsHelpDialogOpen}/>
