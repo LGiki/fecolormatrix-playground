@@ -32,7 +32,7 @@ export default function FeColorMatrixEditor(props: {
                             <div className='flex flex-col gap-4'>
                                 <Input
                                     type='number'
-                                    value={props.feColorMatrix[index].toFixed(1)}
+                                    value={props.feColorMatrix[index]}
                                     step={0.1}
                                     className='h-8'
                                     onChange={(e) => {
@@ -42,10 +42,10 @@ export default function FeColorMatrixEditor(props: {
                                     }}
                                 />
                                 <Slider
-                                    step={0.1}
+                                    step={0.01}
                                     value={[props.feColorMatrix[index]]}
-                                    min={-2}
-                                    max={2}
+                                    min={-10}
+                                    max={10}
                                     onValueChange={(value) => {
                                         const feColorMatrix = [...props.feColorMatrix]
                                         feColorMatrix[index] = value[0]
